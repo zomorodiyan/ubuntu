@@ -10,7 +10,11 @@ export ZSH=$HOME/.oh-my-zsh
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
 ZSH_THEME="powerlevel9k/powerlevel9k"
-POWERLEVEL9K_MODE='nerdfont-complete'
+#POWERLEVEL9K_MODE='FiraCode-Medium'
+#POWERLEVEL9K_MODE='FiraCode-Bold'
+POWERLEVEL9K_MODE='FiraCode-Retina'
+
+
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir newline status)
 POWERLEVEL9K_OS_ICON_BACKGROUND=024 #navyblue
 POWERLEVEL9K_OS_ICON_FOREGROUND=202 #orangered1
