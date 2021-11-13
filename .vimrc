@@ -77,6 +77,13 @@ runtime! macros/matchit.vim
 
 " Pick a leader key
 let mapleader = ","
+" :nmap - Display normal mode maps
+" :imap - Display insert mode maps
+" :vmap - Display visual and select mode maps
+" :smap - Display select mode maps
+" :xmap - Display visual mode maps
+" :cmap - Display command-line mode maps
+" :omap - Display operator pending mode maps
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers
@@ -235,6 +242,10 @@ map <leader><space> :let @/=''<cr> " clear search
 
 " Remap help key.
 inoremap jk <ESC>
+inoremap Jk <ESC>
+inoremap JK <ESC>
+cmap jk <ESC>  
+noremap <leader>jj :w<cr>:!python %
 
 " Formatting
 map <leader>q gqip
@@ -277,6 +288,7 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'jupyter-vim/jupyter-vim'
 
 Plugin 'itchyny/lightline.vim'
 Plugin 'preservim/nerdtree'
