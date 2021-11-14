@@ -22,4 +22,9 @@ src
 .gitconfig
 .pki
 
+.landscape
+.motd_shown
+.dbus
+.shell.*
+
 
