@@ -21,6 +21,17 @@ src
 .vim
 .gitconfig
 .pki
+.conda
+.ipython
+.jupyter
+.keras
+.python_history
+.tmux.conf
+Bluejean*
+Desktop
+Pictures
+anaconda3*
+miniconda3*
 
 .landscape
 .motd_shown
