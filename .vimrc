@@ -21,7 +21,7 @@
 " ctrl-space in insert mode repeats command from last insert mode
 " ctrl-e scroll the screen up
 " ctrl-y scroll the screen down
-" ctrl-^ jump tothe previous edit point (another file)
+" ctrl-^ jump to the previous edit point (another file)
 " di( delet inside parantheses
 " ci' change inside quotes
 " va{ select braces and inside of them
@@ -34,13 +34,14 @@ set hidden " let files to stay in puffer
 set noswapfile
 set nobackup
 set undodir=~/.vim/undodir
-set undofile
+set undofile  "undofile feature: ability to undo after close and open files
 
 " Don't try to be vi compatible
 set nocompatible
 
 " Turn on syntax highlighting
 syntax on
+
 
 " Security
 set modelines=0
@@ -77,13 +78,13 @@ runtime! macros/matchit.vim
 
 " Pick a leader key
 let mapleader = ","
-" :nmap - Display normal mode maps
-" :imap - Display insert mode maps
-" :vmap - Display visual and select mode maps
-" :smap - Display select mode maps
-" :xmap - Display visual mode maps
-" :cmap - Display command-line mode maps
-" :omap - Display operator pending mode maps
+" :nmap - normal mode maps
+" :imap - insert mode maps
+" :vmap - visual and select mode maps
+" :smap - select mode maps
+" :xmap - visual mode maps
+" :cmap - command-line mode maps
+" :omap - operator pending mode maps
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers
@@ -146,7 +147,7 @@ set hidden
 " Set 7 lines to the cursor - when moving vertically using j/k
 set so=7
 
-" Avoid garbled characters in Chinese language windows OS
+" Avoid garbled characters in Chinese language windows OS (qqq)
 let $LANG='en' 
 set langmenu=en
 source $VIMRUNTIME/delmenu.vim
@@ -176,17 +177,6 @@ set hid
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 
-" Ignore case when searching
-set ignorecase
-
-" When searching try to be smart about cases 
-set smartcase
-
-" Highlight search results
-set hlsearch
-
-" Makes search act like search in modern browsers
-set incsearch 
 
 " Don't redraw while executing macros (good performance config)
 set lazyredraw 
@@ -196,15 +186,12 @@ set magic
 
 " Show matching brackets when text indicator is over them
 set showmatch 
+
 " How many tenths of a second to blink when matching brackets
 set mat=2
 
 " No annoying sound on errors
-set noerrorbells
-set novisualbell
-set t_vb=
-set tm=500
-
+set belloff=all
 
 " Rendering
 set ttyfast
@@ -221,8 +208,6 @@ set foldmethod=manual
 "z-r decreases the foldlevel by one.
 "z-Shift+r decreases the foldlevel to zero -- all folds will be open.
 
-"set cmdheight=2
-
 " Status bar
 set laststatus=2
 
@@ -234,10 +219,9 @@ set showcmd
 nnoremap / /\v
 vnoremap / /\v
 set hlsearch
-set incsearch
-set ignorecase
+set incsearch " Makes search act like search in modern browsers
+set ignorecase 
 set smartcase
-set showmatch
 map <leader><space> :let @/=''<cr> " clear search
 
 " Remap help key.
@@ -245,16 +229,15 @@ inoremap jk <ESC>
 inoremap Jk <ESC>
 inoremap JK <ESC>
 cmap jk <ESC>  
-noremap <leader>jj :w<cr>:!python %
+noremap <leader>jj :w<cr>:!python3 %
 
 " Formatting
-map <leader>q gqip
 
 " Visualize tabs and newlines
 set listchars=tab:▸\ ,eol:¬
 
 " set list " To enable by default Or use your leader key + l to toggle on/off
-map <leader>l :set list!<CR> " Toggle tabs and EOL
+map <leader>nl :set list!<CR> " Toggle tabs and EOL
 
 """"""""""""""""""""""""""""""
 " => Visual mode related
@@ -287,8 +270,8 @@ filetype plugin indent off
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'jupyter-vim/jupyter-vim'
 
 Plugin 'itchyny/lightline.vim'
 Plugin 'preservim/nerdtree'
@@ -296,12 +279,67 @@ Plugin 'preservim/nerdtree'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 
+Plugin 'jpalardy/vim-slime' " required by vim-ipython-cell
+Plugin 'hanschen/vim-ipython-cell'
+
+Plugin 'kshenoy/vim-signature' "a plugin to place, toggle and display marks
 
 call vundle#end()
 filetype plugin indent on
 
-" vim-markdown
-let g:vim_markdown_folding_style_pythonic = 1
+
+" ipython-cell 
+let g:slime_target = "tmux"
+"let g:slime_python_ipython = 1 " uncomment in case of paste issues in ipython
+" always send text to the top-right pane in the current tmux tab without asking
+let g:slime_default_config = {
+            \ 'socket_name': get(split($TMUX, ','), 0),
+            \ 'target_pane': '{top-right}' }
+let g:slime_dont_ask_default = 1
+" map <Leader>s to start IPython
+nnoremap <Leader>ip :SlimeSend1 ipython --matplotlib<CR>
+" map <Leader>r to run script
+nnoremap <Leader>r :IPythonCellRun<CR>
+" map <Leader>R to run script and time the execution
+nnoremap <Leader>R :IPythonCellRunTime<CR>
+" map <Leader>c to execute the current cell
+nnoremap <Leader>c :IPythonCellExecuteCell<CR>
+" map <Leader>C to execute the current cell and jump to the next cell
+nnoremap <Leader>C :IPythonCellExecuteCellJump<CR>
+" map <Leader>l to clear IPython screen
+nnoremap <Leader>l :IPythonCellClear<CR>
+" map <Leader>x to close all Matplotlib figure windows
+nnoremap <Leader>x :IPythonCellClose<CR>
+" map [c and ]c to jump to the previous and next cell header
+nnoremap PP :IPythonCellPrevCell<CR>
+nnoremap NN :IPythonCellNextCell<CR>
+" map <Leader>h to send the current line or current selection to IPython
+nmap <Leader>h <Plug>SlimeLineSend
+xmap <Leader>h <Plug>SlimeRegionSend
+" map <Leader>p to run the previous command
+nnoremap <Leader>p :IPythonCellPrevCommand<CR>
+" map <Leader>Q to restart ipython
+nnoremap <Leader>Q :IPythonCellRestart<CR>
+"map <Leader>d to start debug mode
+nnoremap <Leader>d :SlimeSend1 %debug<CR>
+"To invoke the debugger, use <leader>d immediately after encountering and error.
+"it will drop you into a debugger where you can investigate what went wrong
+" map <Leader>q to exit debug mode or IPython
+nnoremap <Leader>q :SlimeSend1 exit<CR>
+" map <F9> and <F10> to insert a cell header tag above/below and enter insert
+mode
+nmap <F9> :IPythonCellInsertAbove<CR>a
+nmap <F10> :IPythonCellInsertBelow<CR>a
+" also make <F9> and <F10> work in insert mode
+imap <F9> <C-o>:IPythonCellInsertAbove<CR>
+imap <F10> <C-o>:IPythonCellInsertBelow<CR>
+" change highlight for code cell headers
+augroup ipython_cell_highlight
+  autocmd!
+  autocmd ColorScheme * highlight IPythonCell
+    \ ctermbg=234      guibg=#3a3a3a
+    \ ctermfg=247      guifg=#00ffff
+augroup END
 
 " ack
 map <leader>g :Ack 
@@ -312,20 +350,26 @@ nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
-" in ~/.vim/colors/
-"colorscheme spacecamp 
-colorscheme  elflord
-"colorscheme badwolf 
-"colorscheme tender 
+" vim-markdown
+let g:vim_markdown_folding_style_pythonic = 1
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ~/.vim/colors/
+colorscheme spacecamp 
+"colorscheme spacecamp_lite 
+"colorscheme elflord
+"colorscheme badwolf 
+"colorscheme tender
+"colorscheme molokai 
 " Quickly open a buffer for scribble
-map <leader>q :e ~/buffer<cr>
+
+map <leader>bu :e ~/buffer<cr>
 
 " Quickly open a markdown buffer for scribble
-map <leader>x :e ~/buffer.md<cr>
+map <leader>md :e ~/buffer.md<cr>
 
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
@@ -365,7 +409,6 @@ function! HasPaste()
     if &paste
         return 'PASTE MODE  '
     endif
-" Remove the Windows ^M - when the encodings gets messed up
 " Remove the Windows ^M - when the encodings gets messed up
 noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 

@@ -18,7 +18,6 @@ src
 .zcompdump*
 .zsh*
 .local
-.vim
 .gitconfig
 .pki
 .conda
@@ -26,16 +25,26 @@ src
 .jupyter
 .keras
 .python_history
-.tmux.conf
 Bluejean*
 Desktop
 Pictures
 anaconda3*
 miniconda3*
+.git
+.slime_paste
+.vim/bundle/lightline.vim
+.vim/bundle/nertree
+.vim/bundle/tabular
+.vim/bundle/vim-ipython-cell
+.vim/bundle/vim-markdown 
+.vim/bundle/vim-signature
+.vim/bundle/vim-slime
+.vim/bundle/nerdtree
 
 .landscape
 .motd_shown
 .dbus
 .shell.*
+*.vimrc
 
 
