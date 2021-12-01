@@ -1,0 +1,8 @@
+mkdir .vim/undodir
+sudo apt update
+sudo apt install zsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sudo apt install python3-pip
+pip install numpy
+pip install matplotlib
+sudo apt-get install python3-tk
