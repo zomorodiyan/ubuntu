@@ -102,11 +102,11 @@ source $ZSH/oh-my-zsh.sh
 
 alias tmuxrc="vim ~/.tmux.conf"
 alias tmux="TERM=screen-256color-bce tmux"
-
-
 alias vimrc="vim ~/.vimrc"
 alias zshrc="vim ~/.zshrc"
 
+alias gits="git status -s"
+alias here="cd /home/zo/src/MAE-5093/final/numpyShockTube"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
