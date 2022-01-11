@@ -3,7 +3,7 @@
 Downloads
 snap
 src
-
+Anaconda*
 .bash_history
 .bash_logout
 .cache
@@ -41,6 +41,7 @@ miniconda3*
 .vim/bundle/vim-slime
 .vim/bundle/nerdtree
 .vim/undodir
+.vim/.net*
 
 .landscape
 .motd_shown
