@@ -1,5 +1,6 @@
 .bashrc
 
+.theano
 Downloads
 snap
 src
@@ -13,7 +14,7 @@ Anaconda*
 .oh-my-zsh
 .profile
 .sudo_as_admin_successful
-.viminfo
+.viminfo*
 .wget-hsts
 .zcompdump*
 .zsh*

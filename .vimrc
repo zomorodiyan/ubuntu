@@ -42,13 +42,12 @@ set nocompatible
 " Turn on syntax highlighting
 syntax on
 
-
 " Security
 set modelines=0
 
 " Show line numbers
 set number
-set relativenumber
+"set relativenumber
 
 " Show file stats
 set ruler
@@ -96,6 +95,9 @@ nnoremap k gk
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
 
+" clipboard copy & paste
+vnoremap <C-c> "*y
+
 " Smart way to move between windows
 map <C-j> <C-W>j
 map <C-k> <C-W>k
@@ -113,11 +115,11 @@ map <leader>h :bprevious<cr>
 
 " Useful mappings for managing tabs
 map <leader>tn :tabnew<cr>
-map <leader>te :tabedit<cr>
+"map <leader>te :tabedit<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove 
-map <leader>t<leader> :tabnext 
+"map <leader>t<leader> :tabnext
 
 " Let 'tl' toggle between this and the last accessed tab
 let g:lasttab = 1
@@ -311,8 +313,8 @@ nnoremap <Leader>l :IPythonCellClear<CR>
 " map <Leader>x to close all Matplotlib figure windows
 nnoremap <Leader>x :IPythonCellClose<CR>
 " map [c and ]c to jump to the previous and next cell header
-nnoremap PP :IPythonCellPrevCell<CR>
-nnoremap NN :IPythonCellNextCell<CR>
+nnoremap <Leader>P :IPythonCellPrevCell<CR>
+nnoremap <Leader>N :IPythonCellNextCell<CR>
 " map <Leader>h to send the current line or current selection to IPython
 nmap <Leader>h <Plug>SlimeLineSend
 xmap <Leader>h <Plug>SlimeRegionSend

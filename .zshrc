@@ -70,7 +70,8 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+#plugins=(git)
+plugins=()
 
 source $ZSH/oh-my-zsh.sh
 
@@ -106,7 +107,9 @@ alias vimrc="vim ~/.vimrc"
 alias zshrc="vim ~/.zshrc"
 
 alias gits="git status -s"
-alias here="cd /home/zo/src/MAE-5093/final/numpyShockTube"
+alias gitl="git log --oneline" 
+
+alias here="cd /home/zo/src/viscous_burgers_1d"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
