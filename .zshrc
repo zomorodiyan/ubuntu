@@ -1,5 +1,6 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=/home/zo/.local/bin:$PATH
+
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/zo/.oh-my-zsh"
@@ -97,32 +98,15 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias tmuxrc="vim ~/.tmux.conf"
 alias tmux="TERM=screen-256color-bce tmux"
 alias vimrc="vim ~/.vimrc"
 alias zshrc="vim ~/.zshrc"
+alias tensorflow="sudo docker run -u $(id -u):$(id -g) -it --gpus all -v $(pwd):/workspace/ tensorflow:latest bash"
+alias showdocker="sudo docker system df"
 
 alias gits="git status -s"
 alias gitl="git log --oneline" 
 
-alias here="cd /home/zo/src/viscous_burgers_1d"
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/zo/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/zo/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/zo/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/zo/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
+#alias here="cd /home/zo/src/viscous_burgers_1d"
