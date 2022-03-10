@@ -50,6 +50,8 @@ alias tmux="TERM=screen-256color-bce tmux"
 alias vimrc="vim ~/.vimrc"
 alias zshrc="vim ~/.zshrc"
 alias tensorflow="sudo docker run -u $(id -u):$(id -g) -it --gpus all -v $(pwd):/workspace/ tensorflow:latest bash"
+alias tf="sudo docker run -u $(id -u):$(id -g) --gpus all -it tensorflow/tensorflow:latest-gpu bash"
+
 alias showdocker="sudo docker system df"
 
 alias gits="git status -s"
