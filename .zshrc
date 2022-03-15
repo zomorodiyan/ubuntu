@@ -1,6 +1,18 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=/home/zo/.local/bin:$PATH
 
+# ---- latex for matplotlib -------------------------------------------------
+export PATH=/usr/local/texlive/2021/install-tl.log:$PATH
+export MANPATH=/usr/local/texlive/2021/texmf-dist/doc/man:$MANPATH
+export MANPATH=/usr/local/texlive/2021/texmf-dist/doc/info:$INFOPATH
+
+function unzip () {
+  echo "unzipping all zip files in this directory..."
+  for z in ./*.zip
+    do unar -d $z > /dev/null #redirect stdout to /dev/null to avoid output
+  done
+  echo "done!"
+}
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/zo/.oh-my-zsh"
@@ -49,12 +61,13 @@ alias tmuxrc="vim ~/.tmux.conf"
 alias tmux="TERM=screen-256color-bce tmux"
 alias vimrc="vim ~/.vimrc"
 alias zshrc="vim ~/.zshrc"
-alias tensorflow="sudo docker run -u $(id -u):$(id -g) -it --gpus all -v $(pwd):/workspace/ tensorflow:latest bash"
-alias tf="sudo docker run -u $(id -u):$(id -g) --gpus all -it tensorflow/tensorflow:latest-gpu bash"
-
+alias tensorflow="sudo docker run -it --rm -u $(id -u):$(id -g) --gpus all -v $(pwd):/workspace/ tensorflow/tensorflow:latest-gpu bash"
+# to see if tensorflow has access to GPUs
+# print("Num GPUs Available: ", len(tf.config.experimental.list_physical_devices('GPU')))
 alias showdocker="sudo docker system df"
-
 alias gits="git status -s"
 alias gitl="git log --oneline" 
+
+alias fortran="gfortran -o exe % && ./exe"
 
 #alias here="cd /home/zo/src/viscous_burgers_1d"
