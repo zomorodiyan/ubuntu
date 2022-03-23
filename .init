@@ -9,10 +9,12 @@ sudo apt install python3-pip
 sudo apt install python3-matplotlib
 sudo apt install tmux 
 sudo apt install unar
+sudo apt install xcalib 
 #sudo apt install imagemagick python3-tk #wsl specific
 mkdir .vim/undodir 
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 pip install numpy matplotlib scipy ipython jupyter pandas sympy nose pre-commit
+pip install jupyterlab notebook
 
 
 # ---- to get tensorflow -----------------------------------------------------
@@ -36,4 +38,10 @@ gsettings set org.gnome.desktop.background primary-color '#000000'
 # ---- install latex ---------------------------------------------------------
 https://www.tug.org/texlive/acquire-netinstall.html
 sudo apt-get install dvipng texlive-latex-extra texlive-fonts-recommended cm-super
+
+# ---- install pymc ----------------------------------------------------------
+conda install conda install -c conda-forge notebook\nconda install -c conda-forge nb_conda_kernels
+conda install -c conda-forge pymc3 theano-pymc mkl mkl-service\n
+
+#added skills: docker
 
