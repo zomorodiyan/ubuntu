@@ -200,8 +200,9 @@ set ttyfast
 set scrolloff=8
 set colorcolumn=80
 set updatetime=50
-set foldmethod=syntax
-set foldmethod=manual
+set foldmethod=indent
+"set foldmethod=syntax
+"set foldmethod=manual
 "z-o opens a fold at the cursor.
 "z-Shift+o opens all folds at the cursor.
 "z-c closes a fold at the cursor.

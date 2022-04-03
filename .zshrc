@@ -1,4 +1,3 @@
-
 DDT_INPUT_CATALOG=/home/zo/work/tem-data/
 DDT_WORKFLOWS=/home/zo/work/tem-output/
 PWD=/home/zo/work/dvm-dos-tem/
@@ -62,7 +61,6 @@ source ~/.oh-my-zsh/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
 
 alias invert="xcalib -invert -alter" #invert all colors in desktop session
 
@@ -71,14 +69,16 @@ alias tmux="TERM=screen-256color-bce tmux"
 alias vimrc="vim ~/.vimrc"
 alias zshrc="vim ~/.zshrc"
 alias src="source ~/.zshrc"
-alias tensorflow="docker run -it --rm -u $(id -u):$(id -g) --gpus all -v $(pwd):/workspace/ tensorflow/tensorflow:latest-gpu bash"
-#alias tem="docker run -it --rm -p 8888:8888 -u $(id -u):$(id -g) --gpus all -v $(pwd):/work/ 844dde bash"
-alias tem=" docker-compose exec -u root dvmdostem-run bash"
+alias tensorflow="docker run -it --rm -u $(id -u):$(id -g) --gpus all -v $(pwd):/workspace/ tens bash"
+alias dc="docker-compose"
 # to see if tensorflow has access to GPUs
 # print("Num GPUs Available: ", len(tf.config.experimental.list_physical_devices('GPU')))
+#
+alias tem=" docker-compose exec -u root dvmdostem-run bash"
 alias showdocker="sudo docker system df"
 alias gits="git status -s"
 alias gitl="git log --oneline" 
+alias test="pytest --cov=." # run tests
 
 alias fortran="gfortran -o exe % && ./exe"
 alias work="cd /home/zo/work/"
