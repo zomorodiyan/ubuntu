@@ -1,7 +1,6 @@
 DDT_INPUT_CATALOG=/home/zo/work/tem-data/
 DDT_WORKFLOWS=/home/zo/work/tem-output/
 PWD=/home/zo/work/dvm-dos-tem/
-#PWD=/home/zo/work/dvm-dos-tem/
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -70,6 +69,8 @@ alias vimrc="vim ~/.vimrc"
 alias zshrc="vim ~/.zshrc"
 alias src="source ~/.zshrc"
 alias tensorflow="docker run -it --rm -u $(id -u):$(id -g) --gpus all -v $(pwd):/workspace/ tens bash"
+alias pymc="docker run -it --rm -v $(pwd):/work/ pymc bash"
+alias jn="docker run -it --rm  -p 8884:8884 -v $(pwd):/work/ jupyternotebook bash"
 alias dc="docker-compose"
 # to see if tensorflow has access to GPUs
 # print("Num GPUs Available: ", len(tf.config.experimental.list_physical_devices('GPU')))
