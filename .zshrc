@@ -1,12 +1,13 @@
+# ---- woodwell --------------------------------------------------------------
 DDT_INPUT_CATALOG=/home/zo/work/tem-data/
 DDT_WORKFLOWS=/home/zo/work/tem-output/
 PWD=/home/zo/work/dvm-dos-tem/
-
+export SITE_SPECIFIC_INCLUDES="-I/usr/include/jsoncpp"
+# ----------------------------------------------------------------------------
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 export PATH=/home/zo/.local/bin:$PATH
 
-# ---- latex for matplotlib -------------------------------------------------
+# ---- latex for matplotlib --------------------------------------------------
 export PATH=/usr/local/texlive/2021/install-tl.log:$PATH
 export MANPATH=/usr/local/texlive/2021/texmf-dist/doc/man:$MANPATH
 export MANPATH=/usr/local/texlive/2021/texmf-dist/doc/info:$INFOPATH
@@ -19,50 +20,30 @@ function unzip () {
   echo "done!"
 }
 
+function unrar () {
+  echo "unzipping all zip files in this directory..."
+  for z in ./*.rar
+    do unar -d $z > /dev/null #redirect stdout to /dev/null to avoid output
+  done
+  echo "done!"
+}
+
 # Path to your oh-my-zsh installation.
 export ZSH="/home/zo/.oh-my-zsh"
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
-
+#ZSH_THEME="robbyrussell"
+ZSH_THEME="amuse"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-#plugins=(git)
 plugins=()
-
 source ~/.oh-my-zsh/oh-my-zsh.sh
 
-# User configuration
 
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-
-alias invert="xcalib -invert -alter" #invert all colors in desktop session
-
+alias p3="python3"
+alias restart='exec "$SHELL"' # restart your shell e.g. enable newly installed 
 alias tmuxrc="vim ~/.tmux.conf"
 alias tmux="TERM=screen-256color-bce tmux"
 alias vimrc="vim ~/.vimrc"
@@ -85,3 +66,6 @@ alias fortran="gfortran -o exe % && ./exe"
 alias work="cd /home/zo/work/"
 
 export PATH="$HOME/.pyenv/bin:$PATH"
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"

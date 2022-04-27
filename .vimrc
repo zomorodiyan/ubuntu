@@ -233,6 +233,7 @@ inoremap Jk <ESC>
 inoremap JK <ESC>
 cmap jk <ESC>  
 noremap <leader>jj :w<cr>:!python3 %
+noremap <leader>tj :w<cr>:!pip install .; python3 %
 noremap <leader>rf :w<cr>:!clear && gfortran -o exe % && ./exe
 
 " Formatting
