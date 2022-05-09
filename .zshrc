@@ -41,9 +41,9 @@ ZSH_THEME="amuse"
 plugins=()
 source ~/.oh-my-zsh/oh-my-zsh.sh
 
-
+alias invert='xcalib -invert -alter'
 alias retox='tox --recreate -e py38'
-alias p3="python3"
+alias py="python3"
 alias restart='exec "$SHELL"' # restart your shell e.g. enable newly installed 
 alias tmuxrc="vim ~/.tmux.conf"
 alias tmux="TERM=screen-256color-bce tmux"
