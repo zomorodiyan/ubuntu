@@ -7,15 +7,19 @@ sudo apt install git
 sudo apt install zsh
 sudo apt install python3-pip
 sudo apt install python3-matplotlib
-sudo apt install tmux 
+sudo apt install tmux
 sudo apt install unar
-sudo apt install xcalib 
+sudo apt install xcalib
 sudo apt install imagemagick
 #sudo apt install imagemagick python3-tk #wsl specific
-mkdir .vim/undodir 
+mkdir .vim/undodir
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 pip install numpy matplotlib scipy ipython jupyter pandas sympy nose pre-commit
 pip install jupyterlab notebook
+pip install python-is-python3 -y
+
+
+curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
 
 
 # ---- to get tensorflow -----------------------------------------------------
@@ -26,11 +30,11 @@ pip install jupyterlab notebook
 # sudo systemctl enable docker
 #
 # to install NVIDIA Container Toolkit (req. for tensorflow)
-# https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html 
+# https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html
 #
 # to get tensorflow docker found in dockerhub
 ##sudo docker pull tensorflow/tensorflow:nightly-gpu
-#sudo docker run --gpus all -it --rm tensorflow/tensorflow:latest-gpu 
+#sudo docker run --gpus all -it --rm tensorflow/tensorflow:latest-gpu
 
 # ---- background to solid black # -------------------------------------------
 gsettings set org.gnome.desktop.background picture-options 'none'
@@ -45,4 +49,3 @@ conda install conda install -c conda-forge notebook\nconda install -c conda-forg
 conda install -c conda-forge pymc3 theano-pymc mkl mkl-service\n
 
 #added skills: docker
-

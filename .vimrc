@@ -118,7 +118,7 @@ map <leader>tn :tabnew<cr>
 "map <leader>te :tabedit<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove 
+map <leader>tm :tabmove
 "map <leader>t<leader> :tabnext
 
 " Let 'tl' toggle between this and the last accessed tab
@@ -134,7 +134,7 @@ map <leader>te :tabedit <C-r>=expand("%:p:h")<cr>/
 " Switch CWD to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
 
-" Specify the behavior when switching between buffers 
+" Specify the behavior when switching between buffers
 try
   set switchbuf=useopen,usetab,newtab
   set stal=2
@@ -150,7 +150,7 @@ set hidden
 set so=7
 
 " Avoid garbled characters in Chinese language windows OS (qqq)
-let $LANG='en' 
+let $LANG='en'
 set langmenu=en
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
@@ -181,13 +181,13 @@ set whichwrap+=<,>,h,l
 
 
 " Don't redraw while executing macros (good performance config)
-set lazyredraw 
+set lazyredraw
 
 " For regular expressions turn magic on
 set magic
 
 " Show matching brackets when text indicator is over them
-set showmatch 
+set showmatch
 
 " How many tenths of a second to blink when matching brackets
 set mat=2
@@ -223,7 +223,7 @@ nnoremap / /\v
 vnoremap / /\v
 set hlsearch
 set incsearch " Makes search act like search in modern browsers
-set ignorecase 
+set ignorecase
 set smartcase
 map <leader><space> :let @/=''<cr> " clear search
 
@@ -231,7 +231,7 @@ map <leader><space> :let @/=''<cr> " clear search
 inoremap jk <ESC>
 inoremap Jk <ESC>
 inoremap JK <ESC>
-cmap jk <ESC>  
+cmap jk <ESC>
 noremap <leader>jj :w<cr>:!python3 %
 noremap <leader>tj :w<cr>:!pip install .; python3 %
 noremap <leader>rf :w<cr>:!clear && gfortran -o exe % && ./exe
@@ -261,9 +261,44 @@ set laststatus=2
 " Format the status line
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
 
+" Indent Python in the Google way.
+
+setlocal indentexpr=GetGooglePythonIndent(v:lnum)
+
+let s:maxoff = 50 " maximum number of lines to look backwards.
+
+function GetGooglePythonIndent(lnum)
+  " Indent inside parens.
+  " Align with the open paren unless it is at the end of the line.
+  " E.g.
+  "   open_paren_not_at_EOL(100,
+  "                         (200,
+  "                          300),
+  "                         400)
+  "   open_paren_at_EOL(
+  "       100, 200, 300, 400)
+  call cursor(a:lnum, 1)
+  let [par_line, par_col] = searchpairpos('(\|{\|\[', '', ')\|}\|\]', 'bW',
+        \ "line('.') < " . (a:lnum - s:maxoff) . " ? dummy :"
+        \ . " synIDattr(synID(line('.'), col('.'), 1), 'name')"
+        \ . " =~ '\\(Comment\\|String\\)$'")
+  if par_line > 0
+    call cursor(par_line, 1)
+    if par_col != col("$") - 1
+      return par_col
+    endif
+  endif
+
+  " Delegate the rest to the original function.
+  return GetPythonIndent(a:lnum)
+
+endfunction
+
+let pyindent_nested_paren="&sw*2"
+let pyindent_open_paren="&sw*2"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Plugin 
+" => Plugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " usign vim-plug
 "call plug#begin('~/.vim/plugged')
@@ -271,29 +306,29 @@ set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ 
 "Plug 'preservim/nerdtree'
 "Plug 'mileszs/ack.vim'
 "call plug#end()
-filetype plugin indent off
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+"filetype plugin indent off
+"filetype off
+"set rtp+=~/.vim/bundle/Vundle.vim
+"call vundle#begin()
 
-Plugin 'VundleVim/Vundle.vim'
+"Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'itchyny/lightline.vim'
-Plugin 'preservim/nerdtree'
+"Plugin 'itchyny/lightline.vim'
+"Plugin 'preservim/nerdtree'
 
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
+"Plugin 'godlygeek/tabular'
+"Plugin 'plasticboy/vim-markdown'
 
-Plugin 'jpalardy/vim-slime' " required by vim-ipython-cell
-Plugin 'hanschen/vim-ipython-cell'
+"Plugin 'jpalardy/vim-slime' " required by vim-ipython-cell
+"Plugin 'hanschen/vim-ipython-cell'
 
-Plugin 'kshenoy/vim-signature' "a plugin to place, toggle and display marks
+"Plugin 'kshenoy/vim-signature' "a plugin to place, toggle and display marks
 
-call vundle#end()
-filetype plugin indent on
+"call vundle#end()
+"filetype plugin indent on
 
 
-" ipython-cell 
+" ipython-cell
 let g:slime_target = "tmux"
 "let g:slime_python_ipython = 1 " uncomment in case of paste issues in ipython
 " always send text to the top-right pane in the current tmux tab without asking
@@ -347,7 +382,7 @@ augroup ipython_cell_highlight
 augroup END
 
 " ack
-map <leader>g :Ack 
+map <leader>g :Ack
 
 " NERDTree
 nnoremap <leader>n :NERDTreeFocus<CR>
@@ -363,12 +398,12 @@ let g:vim_markdown_folding_style_pythonic = 1
 " => Misc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ~/.vim/colors/
-colorscheme spacecamp 
-"colorscheme spacecamp_lite 
+colorscheme spacecamp
+"colorscheme spacecamp_lite
 "colorscheme elflord
-"colorscheme badwolf 
+"colorscheme badwolf
 "colorscheme tender
-"colorscheme molokai 
+"colorscheme molokai
 " Quickly open a buffer for scribble
 
 map <leader>bu :e ~/buffer<cr>
@@ -445,7 +480,7 @@ endfunction
 
 function! CmdLine(str)
     call feedkeys(":" . a:str)
-endfunction 
+endfunction
 
 function! VisualSelection(direction, extra_filter) range
     let l:saved_reg = @"
@@ -463,4 +498,3 @@ function! VisualSelection(direction, extra_filter) range
     let @/ = l:pattern
     let @" = l:saved_reg
 endfunction
-

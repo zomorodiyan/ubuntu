@@ -9,4 +9,3 @@ services:
         - ./data:/data
       ports:
         - 8887:8887
-

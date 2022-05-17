@@ -1,4 +1,4 @@
-" 
+"
 "
 " ███████╗██████╗  █████╗  ██████╗███████╗ ██████╗ █████╗ ███╗   ███╗██████╗
 " ██╔════╝██╔══██╗██╔══██╗██╔════╝██╔════╝██╔════╝██╔══██╗████╗ ████║██╔══██╗
@@ -381,4 +381,3 @@ call <sid>hi('BufTabLineActive', s:spaceSteel, s:spaceGray2, 'none')
 call <sid>hi('BufTabLineCurrent', s:spaceBlack, s:spaceGray4, 'none')
 call <sid>hi('BufTabLineFill', s:spaceBlack, s:spaceBlack, 'none')
 call <sid>hi('BufTabLineHidden', s:spaceGray3, s:spaceBlack2, 'none')
-

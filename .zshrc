@@ -44,13 +44,14 @@ source ~/.oh-my-zsh/oh-my-zsh.sh
 alias invert='xcalib -invert -alter'
 alias retox='tox --recreate -e py38'
 alias py="python3"
-alias restart='exec "$SHELL"' # restart your shell e.g. enable newly installed 
+alias restart='exec "$SHELL"' # restart your shell e.g. enable newly installed
 alias tmuxrc="vim ~/.tmux.conf"
 alias tmux="TERM=screen-256color-bce tmux"
 alias vimrc="vim ~/.vimrc"
 alias zshrc="vim ~/.zshrc"
 alias src="source ~/.zshrc"
-alias tensorflow="docker run -it --rm -u $(id -u):$(id -g) --gpus all -v $(pwd):/workspace/ tens bash"
+#alias tensorflow="docker run -it --rm -u $(id -u):$(id -g) --gpus all -v $(pwd):/workspace/ tens bash"
+alias tensorflow="docker run -it --rm -u $(id -u):$(id -g) --gpus all -v $(pwd):/workspace/ tensorflow-gpu-jupyter bash"
 alias pymc="docker run -it --rm -v $(pwd):/work/ pymc bash"
 alias jn="docker run -it --rm  -p 8884:8884 -v $(pwd):/work/ jupyternotebook bash"
 alias dc="docker-compose"
@@ -60,7 +61,7 @@ alias dc="docker-compose"
 alias tem=" docker-compose exec -u root dvmdostem-run bash"
 alias showdocker="sudo docker system df"
 alias gits="git status -s"
-alias gitl="git log --oneline" 
+alias gitl="git log --oneline"
 alias test="pytest --cov=." # run tests
 
 alias fortran="gfortran -o exe % && ./exe"
@@ -70,3 +71,19 @@ export PATH="$HOME/.pyenv/bin:$PATH"
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/zo/conda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/zo/conda/etc/profile.d/conda.sh" ]; then
+        . "/home/zo/conda/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/zo/conda/bin:$PATH"
+    fi
+fi
+conda config --set auto_activate_base false
+unset __conda_setup
+# <<< conda initialize <<<

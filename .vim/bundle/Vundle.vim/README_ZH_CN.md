@@ -124,7 +124,7 @@
 ## 另外
 
 * Vundle 已测试环境为: [Vim] 7.3 on OS X, Linux and Windows
-* Vundle 尝试尽可能保持至简模式 [KISS](http://en.wikipedia.org/wiki/KISS_principle) 
+* Vundle 尝试尽可能保持至简模式 [KISS](http://en.wikipedia.org/wiki/KISS_principle)
 
 ## TODO:
 [Vundle] 是一个正在进步的项目, 所以很多设计思路和补丁是需要借鉴的.

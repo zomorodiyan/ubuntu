@@ -5,8 +5,8 @@ RUN pip3 install seaborn sklearn tensorflow
 RUN useradd -ms /bin/bash jupyter
 
 #USER root
-RUN apt-get update 
-RUN apt-get install -y curl git vim wget 
+RUN apt-get update
+RUN apt-get install -y curl git vim wget
 
 # Install base utilities
 RUN apt-get update
@@ -25,4 +25,3 @@ ENV PATH=$CONDA_DIR/bin:$PATH
 
 # install pymc3 by conda
 RUN conda install -c conda-forge pymc3 theano-pymc mkl mkl-service
-
