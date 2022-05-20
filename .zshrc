@@ -87,3 +87,6 @@ fi
 conda config --set auto_activate_base false
 unset __conda_setup
 # <<< conda initialize <<<
+
+# to add:
+# github push without token

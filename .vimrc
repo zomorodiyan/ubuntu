@@ -7,10 +7,10 @@
 " U : redo / undo a whole line
 " wa : write all files
 " start & end recording by q, replay it by @
-" substitue 'new' for 'old' in a line :s/old/new/g
-" substitue 'new' for 'old' for specific lines :#,#s/old/new/g
-" substitue 'new' for 'old' in the file :%s/old/new/g
-" substitue 'new' for 'old' in the file and asc for confirmation :%s/old/new/gc
+" Replace 'new' for 'old' in a line :s/old/new/g
+" Replace 'new' for 'old' for specific lines :#,#s/old/new/g
+" Replace 'new' for 'old' in the file :%s/old/new/g
+" Replace 'new' for 'old' in the file and asc for confirmation :%s/old/new/gc
 " :tabedit {file}   edit specified file in a new tab
 " :tabclose         close current tab
 " :sp split, ctrl-w w toggle, ctrl-w hjkl move, ctrl-w q quit
