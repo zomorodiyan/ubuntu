@@ -1,11 +1,11 @@
 # ---- woodwell --------------------------------------------------------------
-DDT_INPUT_CATALOG=/home/zo/work/tem-data/
-DDT_WORKFLOWS=/home/zo/work/tem-output/
-PWD=/home/zo/work/dvm-dos-tem/
+DDT_INPUT_CATALOG=/home/m/work/tem-data/
+DDT_WORKFLOWS=/home/m/work/tem-output/
+PWD=/home/m/work/dvm-dos-tem/
 export SITE_SPECIFIC_INCLUDES="-I/usr/include/jsoncpp"
 # ----------------------------------------------------------------------------
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=/home/zo/.local/bin:$PATH
+export PATH=/home/m/.local/bin:$PATH
 
 # ---- latex for matplotlib --------------------------------------------------
 export PATH=/usr/local/texlive/2021/install-tl.log:$PATH
@@ -29,7 +29,7 @@ function unrar () {
 }
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/zo/.oh-my-zsh"
+export ZSH="/home/m/.oh-my-zsh"
 
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 #ZSH_THEME="robbyrussell"
@@ -44,6 +44,7 @@ source ~/.oh-my-zsh/oh-my-zsh.sh
 alias invert='xcalib -invert -alter'
 alias retox='tox --recreate -e py38'
 alias py="python3"
+alias python="python3"
 alias restart='exec "$SHELL"' # restart your shell e.g. enable newly installed
 alias tmuxrc="vim ~/.tmux.conf"
 alias tmux="TERM=screen-256color-bce tmux"
@@ -57,7 +58,7 @@ alias jn="docker run -it --rm  -p 8884:8884 -v $(pwd):/work/ jupyternotebook bas
 alias dc="docker-compose"
 # to see if tensorflow has access to GPUs
 # print("Num GPUs Available: ", len(tf.config.experimental.list_physical_devices('GPU')))
-#
+
 alias tem=" docker-compose exec -u root dvmdostem-run bash"
 alias showdocker="sudo docker system df"
 alias gits="git status -s"
@@ -65,28 +66,10 @@ alias gitl="git log --oneline"
 alias test="pytest --cov=." # run tests
 
 alias fortran="gfortran -o exe % && ./exe"
-alias work="cd /home/zo/work/"
+alias work="cd /home/m/work/"
 
 export PATH="$HOME/.pyenv/bin:$PATH"
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/zo/conda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/zo/conda/etc/profile.d/conda.sh" ]; then
-        . "/home/zo/conda/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/zo/conda/bin:$PATH"
-    fi
-fi
-conda config --set auto_activate_base false
-unset __conda_setup
-# <<< conda initialize <<<
-
-# to add:
+# to-do:
 # github push without token
