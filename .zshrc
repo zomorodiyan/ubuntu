@@ -1,11 +1,11 @@
 # ---- woodwell --------------------------------------------------------------
-DDT_INPUT_CATALOG=/home/m/work/tem-data/
-DDT_WORKFLOWS=/home/m/work/tem-output/
-PWD=/home/m/work/dvm-dos-tem/
-export SITE_SPECIFIC_INCLUDES="-I/usr/include/jsoncpp"
+# DDT_INPUT_CATALOG=/home/zo/work/tem-data/
+# DDT_WORKFLOWS=/home/zo/work/tem-output/
+# PWD=/home/m/work/dvm-dos-tem/
+# export SITE_SPECIFIC_INCLUDES="-I/usr/include/jsoncpp"
 # ----------------------------------------------------------------------------
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=/home/m/.local/bin:$PATH
+export PATH=/home/zo/.local/bin:$PATH
 
 # ---- latex for matplotlib --------------------------------------------------
 export PATH=/usr/local/texlive/2021/install-tl.log:$PATH
@@ -29,11 +29,14 @@ function unrar () {
 }
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/m/.oh-my-zsh"
+export ZSH="/home/zo/.oh-my-zsh"
 
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-#ZSH_THEME="robbyrussell"
-ZSH_THEME="amuse"
+# ZSH_THEME="robbyrussell"
+# ZSH_THEME="amuse"
+# ZSH_THEME="ys"
+ZSH_THEME="bureau"
+
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -65,8 +68,12 @@ alias gits="git status -s"
 alias gitl="git log --oneline"
 alias test="pytest --cov=." # run tests
 
+
 alias fortran="gfortran -o exe % && ./exe"
-alias work="cd /home/m/work/"
+alias work="cd /home/zo/work/"
+alias cp="cat ~/ps|xclip -i"
+
+
 
 export PATH="$HOME/.pyenv/bin:$PATH"
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1

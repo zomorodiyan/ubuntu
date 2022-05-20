@@ -48,6 +48,7 @@ miniconda3*
 .vim/bundle/nerdtree
 .vim/undodir
 .vim/.net*
+ps
 
 .landscape
 .motd_shown

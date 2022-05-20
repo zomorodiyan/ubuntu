@@ -10,6 +10,7 @@ sudo apt install python3-matplotlib
 sudo apt install tmux
 sudo apt install unar
 sudo apt install xcalib
+sudo apt install xclip
 sudo apt install imagemagick
 #sudo apt install imagemagick python3-tk # wsl specific
 mkdir .vim/undodir
