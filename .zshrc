@@ -1,11 +1,11 @@
 # ---- woodwell --------------------------------------------------------------
-# DDT_INPUT_CATALOG=/home/zo/work/tem-data/
-# DDT_WORKFLOWS=/home/zo/work/tem-output/
+# DDT_INPUT_CATALOG=/home/m/work/tem-data/
+# DDT_WORKFLOWS=/home/m/work/tem-output/
 # PWD=/home/m/work/dvm-dos-tem/
 # export SITE_SPECIFIC_INCLUDES="-I/usr/include/jsoncpp"
 # ----------------------------------------------------------------------------
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=/home/zo/.local/bin:$PATH
+export PATH=/home/m/.local/bin:$PATH
 
 # ---- latex for matplotlib --------------------------------------------------
 export PATH=/usr/local/texlive/2021/install-tl.log:$PATH
@@ -29,7 +29,7 @@ function unrar () {
 }
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/zo/.oh-my-zsh"
+export ZSH="/home/m/.oh-my-zsh"
 
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="robbyrussell"
@@ -70,8 +70,8 @@ alias test="pytest --cov=." # run tests
 
 
 alias fortran="gfortran -o exe % && ./exe"
-alias work="cd /home/zo/work/"
-alias copy="cat ~/ps|xclip -i"
+alias work="cd /home/m/work/"
+alias copy="cat ~/.ps|xclip -i"
 
 
 
@@ -80,19 +80,18 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
 # to-do:
 # github push without token
-
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/zo/conda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/zo/conda/etc/profile.d/conda.sh" ]; then
-        . "/home/zo/conda/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/zo/conda/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-conda config --set auto_activate_base false
+# __conda_setup="$('/home/m/conda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/home/m/conda/etc/profile.d/conda.sh" ]; then
+#         . "/home/m/conda/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/home/m/conda/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
+# conda config --set auto_activate_base false
 # <<< conda initialize <<<
