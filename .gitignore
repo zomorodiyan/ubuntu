@@ -2,6 +2,7 @@
 Screenshot*
 *.png
 work
+.lesshst
 .zoom
 .docker
 workspace
