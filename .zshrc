@@ -32,10 +32,10 @@ function unrar () {
 export ZSH="/home/zo/.oh-my-zsh"
 
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME="robbyrussell"
+ZSH_THEME="robbyrussell"
 # ZSH_THEME="amuse"
 # ZSH_THEME="ys"
-ZSH_THEME="bureau"
+# ZSH_THEME="bureau"
 
 
 # Would you like to use another custom folder than $ZSH/custom?
@@ -71,7 +71,7 @@ alias test="pytest --cov=." # run tests
 
 alias fortran="gfortran -o exe % && ./exe"
 alias work="cd /home/zo/work/"
-alias cp="cat ~/ps|xclip -i"
+alias copy="cat ~/ps|xclip -i"
 
 
 
