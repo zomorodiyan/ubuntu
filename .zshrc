@@ -71,7 +71,7 @@ alias test="pytest --cov=." # run tests
 
 alias fortran="gfortran -o exe % && ./exe"
 alias work="cd /home/zo/work/"
-alias copy="cat ~/ps|xclip -i"
+alias copy="cat ~/.ps|xclip -i"
 
 
 
