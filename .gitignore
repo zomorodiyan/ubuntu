@@ -51,6 +51,8 @@ miniconda3*
 .vim/.net*
 .ps
 
+
+runner
 .landscape
 .motd_shown
 .dbus
