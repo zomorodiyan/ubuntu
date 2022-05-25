@@ -11,6 +11,12 @@ sudo apt install tmux
 sudo apt install unar
 sudo apt install xcalib
 sudo apt install xclip
+
+sudo apt install tox
+sudo apt install pytest
+sudo apt install flake8 
+sudo apt install mypy
+
 sudo apt install imagemagick
 #sudo apt install imagemagick python3-tk # wsl specific
 mkdir .vim/undodir
@@ -49,5 +55,7 @@ sudo apt-get install dvipng texlive-latex-extra texlive-fonts-recommended cm-sup
 # ---- install pymc ----------------------------------------------------------
 # conda install conda install -c conda-forge notebook\nconda install -c conda-forge nb_conda_kernels
 # conda install -c conda-forge pymc3 theano-pymc mkl mkl-service\n
+
+
 
 # added skills: docker
