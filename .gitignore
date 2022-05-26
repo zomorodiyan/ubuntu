@@ -74,3 +74,5 @@ Calibre*
 .vagrant.d
 actions-runner
 .pyenv
+PycharmProjects
+pycharm
