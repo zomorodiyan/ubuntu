@@ -44,6 +44,9 @@ ZSH_THEME="robbyrussell"
 plugins=()
 source ~/.oh-my-zsh/oh-my-zsh.sh
 
+# applications
+alias pycharm='~/pycharm/bin/pycharm.sh'
+
 alias invert='xcalib -invert -alter'
 alias retox='tox --recreate -e py38'
 alias py="python3"
@@ -54,6 +57,7 @@ alias tmux="TERM=screen-256color-bce tmux"
 alias vimrc="vim ~/.vimrc"
 alias zshrc="vim ~/.zshrc"
 alias src="source ~/.zshrc"
+alias install="pip install ."
 #alias tensorflow="docker run -it --rm -u $(id -u):$(id -g) --gpus all -v $(pwd):/workspace/ tens bash"
 alias tensorflow="docker run -it --rm -u $(id -u):$(id -g) --gpus all -v $(pwd):/workspace/ tensorflow-gpu-jupyter bash"
 alias pymc="docker run -it --rm -v $(pwd):/work/ pymc bash"
