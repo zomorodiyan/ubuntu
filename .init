@@ -29,7 +29,13 @@ pip install python-is-python3 -y
 
 curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
 
-
+# ---- install docker --------------------------------------------------------
+# https://docs.docker.com/engine/install/ubuntu/
+# ---- install cudann docker toolkit -----------------------------------------
+# https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker
+# ---- docker without sudo ---------------------------------------------------
+# sudo groupadd docker
+# sudo usermod -aG docker $USER
 # ---- to get tensorflow -----------------------------------------------------
 # to install docker
 # sudo apt update
@@ -59,3 +65,12 @@ sudo apt-get install dvipng texlive-latex-extra texlive-fonts-recommended cm-sup
 
 
 # added skills: docker
+
+# ---- install pytorch with cuda 11.6 from source code -----------------------
+pip install torch --pre --extra-index-url https://download.pytorch.org/whl/nightly/cu116
+# ---- run docker with pytorch with cuda 11.6 --------------------------------
+# requirements:
+# - Docker Engine
+# - NVIDIA GPU Drivers
+# - NVIDIA Container Toolkit
+# docker run --gpus all -it --rm nvcr.io/nvidia/pytorch:22.01-py3
