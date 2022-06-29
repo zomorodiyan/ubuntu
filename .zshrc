@@ -47,6 +47,8 @@ source ~/.oh-my-zsh/oh-my-zsh.sh
 # applications
 alias pycharm='~/pycharm/bin/pycharm.sh'
 
+alias pytorch='docker run --name=torch -v $(pwd)/:/work --gpus all -it --rm -p 5000:80 nvcr.io/nvidia/pytorch:22.02-py3 '
+
 alias invert='xcalib -invert -alter'
 alias retox='tox --recreate -e py38'
 alias py="python3"
