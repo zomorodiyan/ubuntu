@@ -74,6 +74,10 @@ Calibre*
 .vagrant.d
 actions-runner
 .pyenv
+.aesara
+.julia
+VM
+VirtualBox VMs
 PycharmProjects
 pycharm
 .nv

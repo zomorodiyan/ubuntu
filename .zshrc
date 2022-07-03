@@ -1,8 +1,8 @@
 # ---- woodwell --------------------------------------------------------------
-# DDT_INPUT_CATALOG=/home/m/work/tem-data/
-# DDT_WORKFLOWS=/home/m/work/tem-output/
-# PWD=/home/m/work/dvm-dos-tem/
-# export SITE_SPECIFIC_INCLUDES="-I/usr/include/jsoncpp"
+DDT_INPUT_CATALOG=/home/zo/work/tem-data/
+DDT_WORKFLOWS=/home/zo/work/tem-output/
+PWD=/home/m/work/dvm-dos-tem/
+export SITE_SPECIFIC_INCLUDES="-I/usr/include/jsoncpp"
 # ----------------------------------------------------------------------------
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=/home/m/.local/bin:$PATH
@@ -62,6 +62,8 @@ alias src="source ~/.zshrc"
 alias install="pip install ."
 #alias tensorflow="docker run -it --rm -u $(id -u):$(id -g) --gpus all -v $(pwd):/workspace/ tens bash"
 alias tensorflow="docker run -it --rm -u $(id -u):$(id -g) --gpus all -v $(pwd):/workspace/ tensorflow-gpu-jupyter bash"
+#alias pytorch="docker run -it --name torch --rm -u $(id -u):$(id -g) --gpus all -v $(pwd):/work/ nvcr.io/nvidia/pytorch:22.06-py3"
+alias pytorch="docker run -it --name torch --rm --gpus all -v $(pwd):/work/ pytorch:latest"
 alias pymc="docker run -it --rm -v $(pwd):/work/ pymc bash"
 alias jn="docker run -it --rm  -p 8884:8884 -v $(pwd):/work/ jupyternotebook bash"
 alias dc="docker-compose"
@@ -76,7 +78,9 @@ alias test="pytest --cov=." # run tests
 
 
 alias fortran="gfortran -o exe % && ./exe"
-alias work="cd /home/m/work/"
+
+alias work="cd /home/zo/work/"
+
 alias copy="cat ~/.ps|xclip -i"
 
 
