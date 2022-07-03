@@ -2,6 +2,7 @@
 Screenshot*
 *.png
 work
+.lesshst
 .zoom
 .docker
 workspace
@@ -50,6 +51,8 @@ miniconda3*
 .vim/.net*
 .ps
 
+
+runner
 .landscape
 .motd_shown
 .dbus
@@ -75,3 +78,7 @@ actions-runner
 .julia
 VM
 VirtualBox VMs
+PycharmProjects
+pycharm
+.nv
+.nvidia-settings-rc

@@ -498,3 +498,6 @@ function! VisualSelection(direction, extra_filter) range
     let @/ = l:pattern
     let @" = l:saved_reg
 endfunction
+
+" matching parenthesis formating
+hi MatchParen cterm=bold ctermbg=none ctermfg=magenta
