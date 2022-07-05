@@ -46,14 +46,16 @@ plugins=()
 
 # applications
 alias pycharm='~/pycharm/bin/pycharm.sh'
-alias pytorch='docker run --name=torch -v $(pwd):/work --gpus all --rm -ti --runtime=nvidia -p 8082:22 -p 8083:6006 nvcr.io/nvidia/pytorch:22.02-py3 /bin/bash'
 alias tmux="TERM=screen-256color-bce tmux"
+
 alias tensorflow="docker run -it --rm -u $(id -u):$(id -g) --gpus all -v $(pwd):/workspace/ tensorflow-gpu-jupyter bash"
-# to see if tensorflow has access to GPUs
+# see if TensorFlow has access to GPUs
 # print("Num GPUs Available: ", len(tf.config.experimental.list_physical_devices('GPU')))
+
 alias pytorch="sudo docker run -it --name torch --rm --gpus all -v $(pwd):/work/ --runtime=nvidia -p 8082:22 -p 8083:6006 pytorch:latest"
-# tensorboard --logdir lightning_logs   (run in container)
-# ssh -L 8083:127.0.0.1:6006 <user>@<host> -p 8082  (run locally)
+alias tensorboar="tensorboard --logdir=runs" #(run in container)
+alias ssh_tb= ssh -L 8083:127.0.0.1:6006 <user>@<host> -p 8082  #(run locally)
+
 alias pymc="docker run -it --rm -v $(pwd):/work/ pymc bash"
 alias jn="docker run -it --rm  -p 8884:8884 -v $(pwd):/work/ jupyternotebook bash"
 alias tem=" docker-compose exec -u root dvmdostem-run bash"
@@ -71,7 +73,7 @@ alias tmuxrc="vim ~/.tmux.conf"
 alias src="source ~/.zshrc"
 alias install="pip install ."
 alias dc="docker-compose"
-alias showdocker="sudo docker system df"
+alias dockershow="sudo docker system df"
 alias gits="git status -s"
 alias gitl="git log --oneline"
 alias test="pytest --cov=." # run tests
