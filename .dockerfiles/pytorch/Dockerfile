@@ -4,12 +4,9 @@ FROM nvcr.io/nvidia/pytorch:22.06-py3
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt update && apt install -y tmux && rm -rf /var/lib/apt/lists/*
 RUN apt update && apt install -y wget && rm -rf /var/lib/apt/lists/*
-RUN apt update && apt install -y git && rm -rf /var/lib/apt/lists/*
 RUN apt update && apt install -y zsh && rm -rf /var/lib/apt/lists/*
-RUN apt update && apt install -y curl && rm -rf /var/lib/apt/lists/*
-#RUN pip install --upgrade comet_ml
-RUN pip install --upgrade tensorboard
 
+RUN pip install --upgrade tensorboard
 
 # loading my basic ubuntu setting files
 RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.2/zsh-in-docker.sh)"

@@ -1,3 +1,6 @@
+# Path to your oh-my-zsh installation.
+source ~/.oh-my-zsh/oh-my-zsh.sh
+
 # ---- woodwell --------------------------------------------------------------
 #DDT_INPUT_CATALOG=/home/zo/work/tem-data/
 #DDT_WORKFLOWS=/home/zo/work/tem-output/
@@ -5,7 +8,7 @@
 #export SITE_SPECIFIC_INCLUDES="-I/usr/include/jsoncpp"
 # ----------------------------------------------------------------------------
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-#export PATH=/home/zo/.local/bin:$PATH
+#export PATH=~/.local/bin:$PATH
 
 # ---- latex for matplotlib --------------------------------------------------
 #export PATH=/usr/local/texlive/2021/install-tl.log:$PATH
@@ -29,9 +32,6 @@ function unrar () {
 }
 
 
-# Path to your oh-my-zsh installation.
-#export ZSH="/home/zo/.oh-my-zsh"
-source ~/.oh-my-zsh/oh-my-zsh.sh
 
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="robbyrussell"
@@ -53,8 +53,8 @@ alias tensorflow="docker run -it --rm -u $(id -u):$(id -g) --gpus all -v $(pwd):
 # print("Num GPUs Available: ", len(tf.config.experimental.list_physical_devices('GPU')))
 
 alias pytorch="sudo docker run -it --name torch --rm --gpus all -v $(pwd):/work/ --runtime=nvidia -p 8082:22 -p 8083:6006 pytorch:latest"
-alias tensorboar="tensorboard --logdir=runs" #(run in container)
-alias ssh_tb="ssh -L 8083:127.0.0.1:6006 <user>@<host> -p 8082"  #(run locally)
+alias tb="tensorboard --logdir=runs" #(run in container)
+alias sshtb="ssh -L 8083:127.0.0.1:6006 zo@zo -p 8082" # run local, <usr>@<host>
 
 alias pymc="docker run -it --rm -v $(pwd):/work/ pymc bash"
 alias jn="docker run -it --rm  -p 8884:8884 -v $(pwd):/work/ jupyternotebook bash"
