@@ -54,7 +54,7 @@ alias tensorflow="docker run -it --rm -u $(id -u):$(id -g) --gpus all -v $(pwd):
 
 alias pytorch="sudo docker run -it --name torch --rm --gpus all -v $(pwd):/work/ --runtime=nvidia -p 8082:22 -p 8083:6006 pytorch:latest"
 alias tensorboar="tensorboard --logdir=runs" #(run in container)
-alias ssh_tb= ssh -L 8083:127.0.0.1:6006 <user>@<host> -p 8082  #(run locally)
+alias ssh_tb="ssh -L 8083:127.0.0.1:6006 <user>@<host> -p 8082"  #(run locally)
 
 alias pymc="docker run -it --rm -v $(pwd):/work/ pymc bash"
 alias jn="docker run -it --rm  -p 8884:8884 -v $(pwd):/work/ jupyternotebook bash"
