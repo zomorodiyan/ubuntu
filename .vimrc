@@ -190,7 +190,10 @@ set magic
 set showmatch
 
 " How many tenths of a second to blink when matching brackets
-set mat=2
+set mat=1
+
+" formating
+hi MatchParen cterm=bold ctermbg=none ctermfg=magenta
 
 " No annoying sound on errors
 set belloff=all
@@ -398,9 +401,9 @@ let g:vim_markdown_folding_style_pythonic = 1
 " => Misc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ~/.vim/colors/
-colorscheme spacecamp
+"colorscheme spacecamp
 "colorscheme spacecamp_lite
-"colorscheme elflord
+colorscheme elflord
 "colorscheme badwolf
 "colorscheme tender
 "colorscheme molokai
@@ -499,5 +502,4 @@ function! VisualSelection(direction, extra_filter) range
     let @" = l:saved_reg
 endfunction
 
-" matching parenthesis formating
-hi MatchParen cterm=bold ctermbg=none ctermfg=magenta
+
