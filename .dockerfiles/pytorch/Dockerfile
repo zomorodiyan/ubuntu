@@ -14,4 +14,4 @@ RUN pip install --upgrade tensorboard
 # loading my basic ubuntu setting files
 RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.2/zsh-in-docker.sh)"
 RUN cd / && git clone https://github.com/zomorodiyan/ubuntu
-#RUN cp -r /ubuntu/.vim* /ubuntu/.zshrc /ubuntu/.tmux.conf /root/ 
+RUN cp -r /ubuntu/.vim* /ubuntu/.zshrc /ubuntu/.tmux.conf /root/ 
