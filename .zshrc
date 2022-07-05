@@ -1,11 +1,11 @@
 # ---- woodwell --------------------------------------------------------------
 DDT_INPUT_CATALOG=/home/zo/work/tem-data/
 DDT_WORKFLOWS=/home/zo/work/tem-output/
-PWD=/home/m/work/dvm-dos-tem/
+PWD=/home/zo/work/dvm-dos-tem/
 export SITE_SPECIFIC_INCLUDES="-I/usr/include/jsoncpp"
 # ----------------------------------------------------------------------------
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=/home/m/.local/bin:$PATH
+export PATH=/home/zo/.local/bin:$PATH
 
 # ---- latex for matplotlib --------------------------------------------------
 export PATH=/usr/local/texlive/2021/install-tl.log:$PATH
@@ -29,7 +29,7 @@ function unrar () {
 }
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/m/.oh-my-zsh"
+export ZSH="/home/zo/.oh-my-zsh"
 
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="robbyrussell"
@@ -47,7 +47,7 @@ source ~/.oh-my-zsh/oh-my-zsh.sh
 # applications
 alias pycharm='~/pycharm/bin/pycharm.sh'
 
-alias pytorch='docker run --name=torch -v $(pwd)/:/work --gpus all -it --rm -p 5000:80 nvcr.io/nvidia/pytorch:22.02-py3 '
+alias pytorch='docker run --name=torch -v $(pwd):/work --gpus all --rm -ti --runtime=nvidia -p 8082:22 -p 8083:6006 nvcr.io/nvidia/pytorch:22.02-py3 /bin/bash'
 
 alias invert='xcalib -invert -alter'
 alias retox='tox --recreate -e py38'
@@ -60,10 +60,12 @@ alias vimrc="vim ~/.vimrc"
 alias zshrc="vim ~/.zshrc"
 alias src="source ~/.zshrc"
 alias install="pip install ."
-#alias tensorflow="docker run -it --rm -u $(id -u):$(id -g) --gpus all -v $(pwd):/workspace/ tens bash"
 alias tensorflow="docker run -it --rm -u $(id -u):$(id -g) --gpus all -v $(pwd):/workspace/ tensorflow-gpu-jupyter bash"
-#alias pytorch="docker run -it --name torch --rm -u $(id -u):$(id -g) --gpus all -v $(pwd):/work/ nvcr.io/nvidia/pytorch:22.06-py3"
-alias pytorch="docker run -it --name torch --rm --gpus all -v $(pwd):/work/ pytorch:latest"
+
+alias pytorch="sudo docker run -it --name torch --rm --gpus all -v $(pwd):/work/ --runtime=nvidia -p 8082:22 -p 8083:6006 pytorch:latest"
+# tensorboard --logdir lightning_logs   (run in container)
+# ssh -L 8083:127.0.0.1:6006 <user>@<host> -p 8082  (run locally)
+
 alias pymc="docker run -it --rm -v $(pwd):/work/ pymc bash"
 alias jn="docker run -it --rm  -p 8884:8884 -v $(pwd):/work/ jupyternotebook bash"
 alias dc="docker-compose"
@@ -92,14 +94,14 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 # github push without token
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/m/conda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/zo/conda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/m/conda/etc/profile.d/conda.sh" ]; then
-        . "/home/m/conda/etc/profile.d/conda.sh"
+    if [ -f "/home/zo/conda/etc/profile.d/conda.sh" ]; then
+        . "/home/zo/conda/etc/profile.d/conda.sh"
     else
-        export PATH="/home/m/conda/bin:$PATH"
+        export PATH="/home/zo/conda/bin:$PATH"
     fi
 fi
 unset __conda_setup
