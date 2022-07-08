@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-source /.oh-my-zsh
+source ~/.oh-my-zsh/oh-my-zsh.sh
 
 # ---- woodwell --------------------------------------------------------------
 #DDT_INPUT_CATALOG=/home/zo/work/tem-data/
@@ -48,7 +48,7 @@ plugins=()
 alias pycharm='~/pycharm/bin/pycharm.sh'
 alias tmux="TERM=screen-256color-bce tmux"
 
-alias tensorflow="docker run -it --rm -u $(id -u):$(id -g) --gpus all -v $(pwd):/work/ tensorflow /bin/zsh"
+alias tensorflow="docker run -it --rm --privileged --user root --gpus all -v $(pwd):/work/ tensorflow /bin/zsh"
 # see if TensorFlow has access to GPUs
 # print("Num GPUs Available: ", len(tf.config.experimental.list_physical_devices('GPU')))
 
