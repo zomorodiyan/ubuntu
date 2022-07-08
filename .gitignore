@@ -24,7 +24,6 @@ Anaconda*
 .wget-hsts
 .zcompdump*
 .local
-.gitconfig
 .pki
 .conda
 .ipython
