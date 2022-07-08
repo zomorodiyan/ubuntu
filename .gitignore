@@ -12,6 +12,7 @@ snap
 src
 Anaconda*
 .bash_history
+.zsh_history
 .bash_logout
 .cache
 .config
@@ -22,7 +23,6 @@ Anaconda*
 .viminfo*
 .wget-hsts
 .zcompdump*
-.zsh*
 .local
 .gitconfig
 .pki

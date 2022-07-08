@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-source ~/.oh-my-zsh/oh-my-zsh.sh
+source /.oh-my-zsh
 
 # ---- woodwell --------------------------------------------------------------
 #DDT_INPUT_CATALOG=/home/zo/work/tem-data/
@@ -73,7 +73,7 @@ alias tmuxrc="vim ~/.tmux.conf"
 alias src="source ~/.zshrc"
 alias install="pip install ."
 alias dc="docker-compose"
-alias dockershow="sudo docker system df"
+alias dockershow="docker system df"
 alias gits="git status -s"
 alias gitl="git log --oneline"
 alias test="pytest --cov=." # run tests
