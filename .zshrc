@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-source /.oh-my-zsh
+source /oh-my-zsh.sh
 
 # ---- woodwell --------------------------------------------------------------
 #DDT_INPUT_CATALOG=/home/zo/work/tem-data/
