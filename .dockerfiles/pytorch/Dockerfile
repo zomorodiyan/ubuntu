@@ -8,11 +8,9 @@ RUN apt update && apt install -y zsh && rm -rf /var/lib/apt/lists/*
 
 RUN pip install --upgrade tensorboard
 RUN pip install torch_tb_profiler
-git config --global user.name zomorodiyan 
-git config --global user.email mehrdadzomorodiyan@gmail.com 
 
 # install oh-my-zsh
 RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.2/zsh-in-docker.sh)"
 # loading my basic ubuntu setting files
-RUN cd / && git clone https://github.com/zomorodiyan/ubuntu
-RUN cp -r /ubuntu/.vim* /ubuntu/.zshrc /ubuntu/.tmux.conf /root/ 
+RUN git clone https://github.com/zomorodiyan/ubuntu
+RUN cd ubuntu && cp -r .vim* .gitconfig .zshrc .tmux.conf /root/
