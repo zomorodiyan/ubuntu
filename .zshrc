@@ -48,11 +48,11 @@ plugins=()
 alias pycharm='~/pycharm/bin/pycharm.sh'
 alias tmux="TERM=screen-256color-bce tmux"
 
-alias tensorflow="docker run -it --rm -u $(id -u):$(id -g) --gpus all -v $(pwd):/workspace/ tensorflow-gpu-jupyter bash"
+alias tensorflow="docker run -it --rm -u $(id -u):$(id -g) --gpus all -v $(pwd):/work/ tensorflow /bin/zsh"
 # see if TensorFlow has access to GPUs
 # print("Num GPUs Available: ", len(tf.config.experimental.list_physical_devices('GPU')))
 
-alias pytorch="sudo docker run -it --name torch --rm --gpus all -v $(pwd):/work/ --runtime=nvidia -p 8082:22 -p 8083:6006 pytorch:latest"
+alias pytorch="docker run -it --name torch --rm --gpus all -v $(pwd):/work/ --runtime=nvidia -p 8082:22 -p 8083:6006 --shm-size 8G pytorch:latest /bin/zsh"
 alias tb="tensorboard --logdir=runs" #(run in container)
 alias sshtb="ssh -L 8083:127.0.0.1:6006 zo@zo -p 8082" # run local, <usr>@<host>
 
@@ -82,3 +82,4 @@ alias copy="cat ~/.ps|xclip -i"
 
 # to-do:
 # github push without token
+
