@@ -1,3 +1,17 @@
 [user]
 	email = mehrdadzomorodiyan@gmail.com
 	name = zomorodiyan
+
+# ':qa' cycles to the next file without saving anything
+[diff]
+	tool = vimdiff
+
+[difftool]
+	prompt = false
+
+[difftool "vimdiff"]
+	cmd = vimdiff \"$LOCAL\" \"$REMOTE\"
+
+# git d
+[alias]
+	d = difftool
