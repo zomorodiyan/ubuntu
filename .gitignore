@@ -79,3 +79,5 @@ PycharmProjects
 pycharm
 .nv
 .nvidia-settings-rc
+.jupyter
+.oh-my-zsh

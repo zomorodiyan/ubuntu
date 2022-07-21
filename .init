@@ -14,7 +14,7 @@ sudo apt install xclip
 
 sudo apt install tox
 sudo apt install pytest
-sudo apt install flake8 
+sudo apt install flake8
 sudo apt install mypy
 
 sudo apt install imagemagick
@@ -74,3 +74,5 @@ pip install torch --pre --extra-index-url https://download.pytorch.org/whl/night
 # - NVIDIA GPU Drivers
 # - NVIDIA Container Toolkit
 # docker run --gpus all -it --rm nvcr.io/nvidia/pytorch:22.01-py3
+
+# deepo   : to generate dockerfile for deeplearning tools

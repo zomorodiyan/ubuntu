@@ -56,14 +56,16 @@ alias tensorflow="docker run -it --rm --privileged --user root --gpus 'all,capab
 # see if TensorFlow has access to GPUs
 # print("Num GPUs Available: ", len(tf.config.experimental.list_physical_devices('GPU')))
 
-alias pytorch="docker run -it --name torch --rm --gpus all -v $(pwd):/work/ --runtime=nvidia -p 8082:22 -p 8083:6006 -p 8888:8888 --shm-size 8G pytorch /bin/zsh"
-alias tb="tensorboard --logdir=runs" #(run in container)
-alias sshtb="ssh -L 8083:127.0.0.1:6006 zo@zo -p 8082" # run local, <usr>@<host>
-alias sshj="ssh -L 8888:127.0.0.1:8888 zo@my" # ssh for jupyter notbook
+#alias pytorch="docker run -it --name torch --rm --gpus all -v $(pwd):/work/ --runtime=nvidia -p 8082:22 -p 8083:6006 -p 8888:8888 --shm-size 30G pytorch"
+alias pytorch="docker run -it --name torch --rm --gpus all -v $(pwd):/work/ --runtime=nvidia -p 8083:6006 -p 8888:8888 --shm-size 30G pytorch"
 
+alias tb="tensorboard --logdir=./logs" #(run in container)
+alias sshtb="ssh -L 8083:127.0.0.1:6006 zo@zo -p 8082" # run local, <usr>@<host>
+alias 8888="ssh -L 8888:127.0.0.1:8888 zo@my" # ssh for jupyter notbook
 alias pymc="docker run -it --rm -v $(pwd):/work/ pymc bash"
-alias jn="docker run -it --rm  -p 8884:8884 -v $(pwd):/work/ jupyternotebook bash"
-alias tem=" docker-compose exec -u root dvmdostem-run bash"
+alias notebook="jupyter notebook --ip='*' --NotebookApp.token='' --NotebookApp.password=''"
+alias tem="docker-compose exec -u root dvmdostem-run bash"
+alias resource="free -lm" # see resources
 
 # shortcut
 alias py="python3"
@@ -72,6 +74,7 @@ alias fortran="gfortran -o exe % && ./exe"
 alias retox='tox --recreate -e py38'
 alias invert='xcalib -invert -alter'
 alias restart='exec "$SHELL"' # restart your shell e.g. enable newly installed
+alias todo="vim ~/.todo"
 alias vimrc="vim ~/.vimrc"
 alias zshrc="vim ~/.zshrc"
 alias tmuxrc="vim ~/.tmux.conf"
