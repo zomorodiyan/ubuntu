@@ -19,7 +19,10 @@ RUN pip install torchsummary
 RUN pip install h5py
 # console progress bar
 RUN pip install tqdm
+# to use tqdm in jupyter notebook
+RUN pip install ipywidgets
 RUN pip install pyro-ppl
+RUN pip install orbit-ml
 #RUN pip install torchaudio
 
 # loading my basic ubuntu setting files
