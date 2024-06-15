@@ -1,31 +1,28 @@
-FROM nvcr.io/nvidia/pytorch:22.06-py3
+# Use the NVIDIA Pytorch image as the base image
+FROM nvcr.io/nvidia/pytorch:24.05-py3
 
-# installing packages by apt
-ENV DEBIAN_FRONTEND=noninteractive
+# Install dependencies
+# Install system dependencies
 RUN apt update && apt install -y tmux
-RUN apt update && apt install -y wget
 RUN apt update && apt install -y zsh
-RUN rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    cmake \
+    git \
+    curl \
+    libopenblas-dev \
+    libomp-dev \
+    python3-pip \
+    wget \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-#RUN pip install jupyter
-RUN pip install jupyterlab
-# visualization web application
-RUN pip install --upgrade tensorboard
-# profiling web application
-RUN pip install torch_tb_profiler
-# print nn's graph
-RUN pip install torchsummary
-# load .mat data file
-RUN pip install h5py
-# console progress bar
-RUN pip install tqdm
-# to use tqdm in jupyter notebook
-RUN pip install ipywidgets
-RUN pip install pyro-ppl
-RUN pip install orbit-ml
-#RUN pip install torchaudio
+# Upgrade pip
+RUN pip3 install --upgrade pip
 
 # loading my basic ubuntu setting files
 RUN mkdir /init && git clone https://github.com/zomorodiyan/ubuntu /init
 RUN cd /init && cp .zshrc .vimrc .tmux.conf /root/
 RUN cd /init && cp -r .vim .gitconfig .oh-my-zsh /root/
+
+# Set the default command to python3
+CMD ["zsh"]
